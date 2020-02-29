@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(100, 100, 100);
+}
+
+form{
+    margin-bottom: 5em;
+}
+
+footer{
+
+}
+
+#mpgTracker .form-group{
+    background-color: rgb(200, 200, 200);
+    padding: 1em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+}
+
+#mpgTracker footer{
+    display: block;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+}
