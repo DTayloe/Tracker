@@ -9,11 +9,11 @@ require_once("__php__.php");
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="<?= $_SESSION['CSS_INC'] ?>">
-    <link rel="stylesheet" type="text/css" href="mpgTracker.css">
+    <link rel="stylesheet" type="text/css" href="gasTracker.css">
     <title>MPG Tracker</title>
 </head>
 <body>
-<form action="./mpgTracker_process.php" method="get" id="mpgTracker">
+<form action="./gasTracker_process.php" method="get" id="gasTracker">
 
 <?php 
 

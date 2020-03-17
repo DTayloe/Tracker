@@ -1,6 +1,6 @@
 <?php
 
-header("Location: ./mpgTracker_success.php");
+header("Location: ./gasTracker_success.php");
 
 require_once("__php__.php");
 

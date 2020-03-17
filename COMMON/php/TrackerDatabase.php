@@ -24,7 +24,7 @@ class TrackerDatabase{
      * This must match the order of items on the user form website!
     */
     private static $mappingColumns = [
-        // mpgtracker database
+        // tracker database
         // 'users' => ["name"], 
         // 'user_data' => ["person","odometer","pricePerGallon"], 
         // 'vehicle' => ["make","model","year"], 

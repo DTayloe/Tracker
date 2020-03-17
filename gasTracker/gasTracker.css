@@ -10,14 +10,14 @@ footer{
 
 }
 
-#mpgTracker .form-group{
+#gasTracker .form-group{
     background-color: rgb(200, 200, 200);
     padding: 1em;
     margin: 0.5em;
     border-radius: 0.5em;
 }
 
-#mpgTracker footer{
+#gasTracker footer{
     display: block;
     position: fixed;
     left: 0px;
