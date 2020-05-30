@@ -53,12 +53,34 @@ function MakeInputRowDataList($id, $name, $title, $items){
 EOT;
 }
 
+/* There is a problem with validation on iOS that doesn't let it submit */
+// Created this one so the key in the html form is still submitted
 function MakeInputRowDatetimebox($id, $name, $title)
+{
+    echo <<<EOT
+<div class="form-group" hidden>
+    <label for="$id">$title</label>
+    <input id="$id" type="datetime-local" name="$name" class="form-control" novalidate>
+</div>
+EOT;
+}
+
+function MakeInputRowNumberbox($id, $name, $title)
 {
     echo <<<EOT
 <div class="form-group">
     <label for="$id">$title</label>
-    <input id="$id" type="datetime-local" name="$name" class="form-control">
+    <input id="$id" type="number" step="any" name="$name" class="form-control">
+</div>
+EOT;
+}
+
+function MakeInputRowBigNumberbox($id, $name, $title)
+{
+    echo <<<EOT
+<div class="form-group">
+    <label for="$id">$title</label>
+    <input id="$id" type="number" inputmode="numeric" pattern="[0-9]*" name="$name" class="form-control">
 </div>
 EOT;
 }

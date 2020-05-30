@@ -6,10 +6,6 @@ form{
     margin-bottom: 5em;
 }
 
-footer{
-
-}
-
 #gasTracker .form-group{
     background-color: rgb(200, 200, 200);
     padding: 1em;
@@ -24,3 +20,16 @@ footer{
     bottom: 0px;
     right: 0px;
 }
+
+#gasTracker #submit-button{
+    background-color: red;
+    height: 4rem;
+    font-size: 1.5rem;
+}
+
+/* Up to iPhone X*/
+/* @media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3){
+    #gasTracker #submit-button{
+        background-color: rgb(0, 0, 0);
+    }
+} */

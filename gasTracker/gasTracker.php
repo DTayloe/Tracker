@@ -8,6 +8,7 @@ require_once("__php__.php");
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="<?= $_SESSION['CSS_INC'] ?>">
     <link rel="stylesheet" type="text/css" href="gasTracker.css">
     <title>MPG Tracker</title>
@@ -33,18 +34,18 @@ require_once("__php__.php");
     <?php MakeInputRowList("person", "person", "Person", arrOfObjToArr(TrackerDatabase::QuerySelect("person"), "id, name")); ?>
 
     <?php MakeInputRowListWithButton("vehicle", "vehicle", "Vehicle", arrOfObjToArr(TrackerDatabase::QuerySelect("vehicle"), "id, make, model, year")); ?>
-    <?php MakeInputRowTextbox("odometer", "odometer", "Odometer"); ?>
-    <?php MakeInputRowTextbox("milesDrivenSinceLastFillUp", "milesDrivenSinceLastFillUp", "Miles Driven Since Last Fill Up"); ?>
-    <?php MakeInputRowTextbox("pricePerGallon", "pricePerGallon", "Price Per Gallon"); ?>
-    <?php MakeInputRowTextbox("gallons", "gallons", "Gallons"); ?>
-    <?php MakeInputRowTextbox("cost", "cost", "Cost"); ?>
+    <?php MakeInputRowBigNumberbox("odometer", "odometer", "Odometer"); ?>
+    <?php MakeInputRowNumberbox("milesDrivenSinceLastFillUp", "milesDrivenSinceLastFillUp", "Miles Driven Since Last Fill Up"); ?>
+    <?php MakeInputRowNumberbox("pricePerGallon", "pricePerGallon", "Price Per Gallon"); ?>
+    <?php MakeInputRowNumberbox("gallons", "gallons", "Gallons"); ?>
+    <?php MakeInputRowNumberbox("cost", "cost", "Cost"); ?>
     <?php MakeInputRowListWithButton("gasCompany", "gasCompany", "Gas Company", arrOfObjToArr(TrackerDatabase::QuerySelect("business"), "id, name")); ?>
     <?php MakeInputRowTextbox("notes", "notes", "Notes"); ?>
     <?php MakeInputRowDatetimebox("datetime", "datetime", "Date and Time"); ?>
 
 
     <footer>
-        <button class="btn btn-block btn-primary" type="submit">Submit</button>
+        <button class="btn btn-block btn-primary" type="submit" id="submit-button">Submit</button>
     </footer>
 </form>
 </body>

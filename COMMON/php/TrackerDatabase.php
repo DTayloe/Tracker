@@ -160,7 +160,13 @@ public static function SendFormDataGas($input){
         //     $sqlKeys .= $key . $ending;
             if($key != "id"){// get rid of id since is autoincremented
                 $marks .= "?" . ", ";        // for using prepared sql statement
-                $sqlValues[] = $value;
+                
+                // insert current date if key found
+                if($key == "datetime"){
+                    $sqlValues[] = date("Y-m-d H:i:s");
+                }else{
+                    $sqlValues[] = $value;
+                }
             }
 
         //     $i++;
