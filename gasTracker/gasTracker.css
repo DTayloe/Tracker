@@ -1,19 +1,16 @@
-body{
-    background-color: rgb(100, 100, 100);
-}
-
 form{
-    margin-bottom: 5em;
+    margin-bottom: 5rem;
+    /* margin-top: 5em; */
 }
 
 #gasTracker .form-group{
     background-color: rgb(200, 200, 200);
-    padding: 1em;
-    margin: 0.5em;
-    border-radius: 0.5em;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
 }
 
-#gasTracker footer{
+.bottom-footer{
     display: block;
     position: fixed;
     left: 0px;
@@ -21,10 +18,11 @@ form{
     right: 0px;
 }
 
-#gasTracker #submit-button{
+#submit-button{
     background-color: red;
     height: 4rem;
     font-size: 1.5rem;
+    z-index: 2;
 }
 
 /* Up to iPhone X*/

@@ -9,7 +9,6 @@ session_start();
 
 // bootstrap
 $_SESSION['CSS_INC'] = "../" . ltrim($_SESSION['CSS_INC'], "/");
-// error_log("CSS_INC: " . $_SESSION['CSS_INC']);
 
 
 ?>

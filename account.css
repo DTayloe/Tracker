@@ -1,0 +1,57 @@
+.goop {
+    margin: 1rem;
+}
+
+.goop span {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    vertical-align: middle;
+}
+
+/* Header title... WOW there needs to be a space between the colon and css class, otherwise it just disappears... but only if bootstrap is imported!!! */
+
+.goop :first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.chunk {
+    display: inline-block;
+}
+
+.vl {
+    display: inline-block;
+    background-color: white;
+    width: 4px;
+    margin: 0px;
+    padding: 0px;
+    height: 50px;
+}
+
+.user {
+    font-size: 1rem;
+    color: white;
+}
+
+#content>div {
+    display: inline-block;
+    margin: 1rem;
+}
+
+@media only screen and (max-device-width: 500px) {
+    #content>div {
+        display: block;
+    }
+}
+
+/*
+MOBILE
+*/
+
+/* Up to iPhone X*/
+
+@media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+    #content>div {
+        display: block;
+    }
+}

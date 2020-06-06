@@ -30,28 +30,25 @@ function JoinPath(...$paths){
 }
 
 // from the array of objects extract a property into a comma-seperated value string
-// [{"name":"Carlee"},{"name":"Daniel"},{"name":"Nicholas"},{"name":"Will"}]
+// [{"name":"Daniel"},{"name":"Nicholas"},{"name":"Will"}]
 // to
-// "Carlee, Daniel, Nicholas, Will"
+// "Daniel, Nicholas, Will"
 function arrToStr($arr, $extract){
     return implode(", ", arrOfObjToArr($arr, $extract));
 }
 
-$arr = [
-    "1" => "toyota - celica - 2002",
-];
-
-// [{"name":"Carlee"},{"name":"Daniel"},{"name":"Nicholas"},{"name":"Will"}]
-// to
-// ["Carlee", "Daniel", "Nicholas", "Will"]
-
 /**
  * input: 
- *      arr =       {"id":1,"make":"toyota","model":"celica","year":2002}
+ *      arr =       [{"id":1,"make":"toyota","model":"celica","year":2002},
+ *                  {"id":2,"make":"suburu","model":"legacy","year":2009},
+ *                  {"id":3,"make":"honda","model":"accord","year":1991}]
  *      extract =   "id, make, model, year"
- * output:{"1":"toyota - celica - 2002"}
+ * output:
+ *      {"1":"toyota - celica - 2002","2":"suburu - legacy - 2009","3":"honda - accord - 1991"}
  */
 function arrOfObjToArr($arr, $extract){
+    error_log("arr = " . json_encode($arr));
+    error_log("extract = " . json_encode($extract));
     $result = [];
 
     // split csv string into array
@@ -77,6 +74,7 @@ function arrOfObjToArr($arr, $extract){
         $result[$tempId] = $temp;
     }
 
+    error_log("output: " . json_encode($result));
     return $result;
 }
 

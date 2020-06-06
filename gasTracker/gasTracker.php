@@ -1,52 +1,56 @@
 <?php
 
+require_once($_SERVER['DOCUMENT_ROOT'] . "/Tracker/ensure-login.php");
+
 require_once("__php__.php");
 
 ?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="<?= $_SESSION['CSS_INC'] ?>">
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/Tracker/head-tags.php"); ?>
     <link rel="stylesheet" type="text/css" href="gasTracker.css">
     <title>MPG Tracker</title>
 </head>
+
 <body>
-<form action="./gasTracker_process.php" method="get" id="gasTracker">
+    <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/Tracker/menu-bar.php"); ?>
+    <form action="./gasTracker_process.php" method="get" id="gasTracker">
 
-<?php 
+        <?php
 
-// example to grab users into format for making input element from
+        // example to grab users into format for making input element from
 
-// $result = TrackerDatabase::QuerySelect("users");
-// error_log(json_encode($result));
+        // $result = TrackerDatabase::QuerySelect("users");
+        // error_log(json_encode($result));
 
-// $resultCsvString = arrToStr($result, "name");
-// error_log($resultCsvString);
+        // $resultCsvString = arrToStr($result, "name");
+        // error_log($resultCsvString);
 
-// error_log("Test: " . json_encode(TrackerDatabase::QuerySelect("vehicle")));
-
-
-?>
-    <!-- This one will be replaced with user login -->
-    <?php MakeInputRowList("person", "person", "Person", arrOfObjToArr(TrackerDatabase::QuerySelect("person"), "id, name")); ?>
-
-    <?php MakeInputRowListWithButton("vehicle", "vehicle", "Vehicle", arrOfObjToArr(TrackerDatabase::QuerySelect("vehicle"), "id, make, model, year")); ?>
-    <?php MakeInputRowBigNumberbox("odometer", "odometer", "Odometer"); ?>
-    <?php MakeInputRowNumberbox("milesDrivenSinceLastFillUp", "milesDrivenSinceLastFillUp", "Miles Driven Since Last Fill Up"); ?>
-    <?php MakeInputRowNumberbox("pricePerGallon", "pricePerGallon", "Price Per Gallon"); ?>
-    <?php MakeInputRowNumberbox("gallons", "gallons", "Gallons"); ?>
-    <?php MakeInputRowNumberbox("cost", "cost", "Cost"); ?>
-    <?php MakeInputRowListWithButton("gasCompany", "gasCompany", "Gas Company", arrOfObjToArr(TrackerDatabase::QuerySelect("business"), "id, name")); ?>
-    <?php MakeInputRowTextbox("notes", "notes", "Notes"); ?>
-    <?php MakeInputRowDatetimebox("datetime", "datetime", "Date and Time"); ?>
+        // error_log("Test: " . json_encode(TrackerDatabase::QuerySelect("vehicle")));
 
 
-    <footer>
-        <button class="btn btn-block btn-primary" type="submit" id="submit-button">Submit</button>
-    </footer>
-</form>
+        ?>
+
+        <?php MakeInputRowHidden("person", "person", "Person", $_SESSION['id']); ?>
+        <?php MakeInputRowListWithButton("vehicle", "vehicle", "Vehicle", arrOfObjToArr(TrackerDatabase::QuerySelect("vehicle"), "id, make, model, year")); ?>
+        <?php MakeInputRowBigNumberbox("odometer", "odometer", "Odometer"); ?>
+        <?php MakeInputRowNumberbox("milesDrivenSinceLastFillUp", "milesDrivenSinceLastFillUp", "Miles Driven Since Last Fill Up"); ?>
+        <?php MakeInputRowNumberbox("pricePerGallon", "pricePerGallon", "Price Per Gallon"); ?>
+        <?php MakeInputRowNumberbox("gallons", "gallons", "Gallons"); ?>
+        <?php MakeInputRowNumberbox("cost", "cost", "Cost"); ?>
+        <?php MakeInputRowListWithButton("gasCompany", "gasCompany", "Gas Company", arrOfObjToArr(TrackerDatabase::QuerySelect("business"), "id, name")); ?>
+        <?php MakeInputRowTextbox("notes", "notes", "Notes"); ?>
+
+        <!-- Hidden since does not have good behavior, kept so still submits data -->
+        <?php MakeInputRowHidden("datetime", "datetime", "Date and Time", ""); ?>
+
+
+    </form>
+    <div class="bottom-footer">
+        <button id="submit-button" class="btn btn-block btn-primary" form="gasTracker" type="submit">Submit</button>
+    </div>
 </body>
+
 </html>

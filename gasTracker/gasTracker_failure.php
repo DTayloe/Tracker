@@ -7,7 +7,7 @@
     <title>Success</title>
 </head>
 <body>
-    <h1>Success</h1>
-    <p>Your data was saved.</p>
+    <h1>Failure</h1>
+    <p>Data not saved due to an error, try again later.</p>
 </body>
 </html>

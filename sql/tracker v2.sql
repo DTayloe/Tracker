@@ -24,9 +24,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `person` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `username` varchar(50) NOT NULL UNIQUE,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `vehicle` (
@@ -49,7 +48,7 @@ CREATE TABLE `gas` (
   `cost` float NOT NULL,
   `business_id` int(11) NOT NULL,
   `notes` varchar(1500) NOT NULL,
-  `date_time` datetime NOT NULL,
+  `date_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `miles_driven` float NOT NULL,
   `gallons_bought` float NOT NULL,
   `price_per_gal` float NOT NULL
